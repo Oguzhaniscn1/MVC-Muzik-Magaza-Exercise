@@ -1,0 +1,65 @@
+﻿@model MVC_Muzik_Magaza.Models.tbl_musteri
+@{
+    ViewBag.Title = "Üye Ol";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Üye Ol</h2>
+
+@using (Html.BeginForm("Create", "Uyelik", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MusteriAdsoyad, "ADINIZ SOYADINIZ", htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.MusteriAdsoyad, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.MusteriAdsoyad, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Telno, "TELEFON NUMARANIZ", htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.Telno, new { htmlAttributes = new { @class = "form-control", type = "number" } })
+        @Html.ValidationMessageFor(model => model.Telno, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TC, "TC KİMLİK NUMARANIZ", htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.TC, new { htmlAttributes = new { @class = "form-control", type = "number" } })
+        @Html.ValidationMessageFor(model => model.TC, "", new { @class = "text-danger" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Adres, "İLÇE", htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.Adres, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Adres, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Sehir, "İL", htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.Sehir, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Sehir, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.KulAdi, "GİRİŞ YAPACAĞINIZ KULLANICI ADINIZ", htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.KulAdi, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.KulAdi, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Sifre, "ŞİFRENİZ", htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.Sifre, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+        @Html.ValidationMessageFor(model => model.Sifre, "", new { @class = "text-danger" })
+    </div>
+
+
+    <br />
+    <br />
+    <br />
+
+
+    <div class="form-group">
+        <input type="submit" value="Üye Ol" class="btn btn-primary" />
+    </div>
+}

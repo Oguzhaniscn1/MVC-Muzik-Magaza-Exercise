@@ -1,0 +1,28 @@
+﻿@model PagedList.IPagedList<MVC_Muzik_Magaza.Models.tbl_urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@if (Model.Any())
+{
+    <div class="row">
+        @foreach (var urun in Model)
+        {
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="@urun.ImagePath" class="card-img-top" style="width: 200px; height: 200px;">
+                    <div class="card-body">
+                        <h5 class="card-title">@urun.Urunad</h5>
+                        <p class="card-text">@urun.Marka - @urun.UrunFiyat TL</p>
+                        <a href="/Klavye/Getir/@urun.UrunID" class="btn btn-primary">İncele ve Satın Al</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>Ürün bulunamadı.</p>
+}

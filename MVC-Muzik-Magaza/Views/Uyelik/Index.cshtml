@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Ana Sayfa";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="jumbotron text-center">
+    <h1 class="display-4">Hoş Geldiniz</h1>
+    <p class="lead">Hoşgeldiniz, alışverişe başlamadan önce üye olmayı unutmayın.</p>
+
+</div>
+
+<div class="text-center">
+    <a href="/Uyelik/Create/" class="btn btn-secondary">Üye Ol</a>
+    <a href="/Uyelik/Girisyap/" class="btn btn-secondary">Giriş YAP</a>
+</div>
+<style>
+    .jumbotron {
+        background-color: #f8f9fa;
+        padding: 50px;
+        margin-bottom: 30px;
+        border-radius: 5px;
+    }
+
+        .jumbotron h1 {
+            font-size: 36px;
+        }
+
+        .jumbotron p {
+            font-size: 18px;
+        }
+
+    .btn-lg {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    .btn-secondary {
+        background-color: #343a40;
+        color: #fff;
+        font-size: 16px;
+        padding: 8px 16px;
+        border-radius: 5px;
+    }
+
+        .btn-secondary:hover {
+            background-color: #23272b;
+        }
+
+    .text-center {
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>

@@ -1,0 +1,48 @@
+﻿@using MVC_Muzik_Magaza.Models
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<tbl_satis>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Satış ID</th>
+            <th>Ürün</th>
+            <th>Müşteri</th>
+            <th>Satış Fiyat</th>
+            <th>Satış Adet</th>
+            <th>Satış Tarih</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sat in Model)
+        {
+            <tr>
+                <td>@sat.SatisID</td>
+                <td>@sat.tbl_urun.Urunad</td>
+                <td>@sat.tbl_musteri.MusteriAdsoyad</td>
+                <td>@sat.SatisFiyat</td>
+                <td>@sat.Satisadet</td>
+                <td>@sat.Satistarih</td>
+
+
+                <td><a href="/Satis/Sil/@sat.SatisID" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Satis/Satisgetir/@sat.SatisID" class="btn btn-info">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Satis/Satisekle" class="btn btn-info">YENİ SATIŞ EKLE</a>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+

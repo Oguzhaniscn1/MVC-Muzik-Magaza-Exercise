@@ -1,0 +1,49 @@
+﻿@model MVC_Muzik_Magaza.Models.tbl_musteri
+@{
+    ViewBag.Title = "musterigetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>musterigetir</h2>
+@using (Html.BeginForm("Guncelle", "Musteri", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.LabelFor(k => k.MusteriID)
+        @Html.TextBoxFor(k => k.MusteriID, new { @class = "form-control", @readonly = "readonly" })
+
+        @Html.LabelFor(k => k.MusteriAdsoyad)
+        @Html.TextBoxFor(k => k.MusteriAdsoyad, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.Telno)
+        @Html.TextBoxFor(k => k.Telno, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.TC)
+        @Html.TextBoxFor(k => k.TC, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.Adres)
+        @Html.TextBoxFor(k => k.Adres, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.Sehir)
+        @Html.TextBoxFor(k => k.Sehir, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.KulAdi)
+        @Html.TextBoxFor(k => k.KulAdi, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.Sifre)
+        @Html.TextBoxFor(k => k.Sifre, new { @class = "form-control" })
+
+
+        @Html.LabelFor(k => k.Yetki, "Yetki")
+        @Html.DropDownListFor(k => k.Yetki, new SelectList(new[]
+            {
+                new SelectListItem { Text = "Müşteri", Value = "False" },
+                new SelectListItem { Text = "Admin", Value = "True" }
+            }, "Value", "Text"), "-- Seçiniz --", new { @class = "form-control" })
+
+
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Müşteri Güncelle</button>
+    </div>
+}

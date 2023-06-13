@@ -1,0 +1,55 @@
+﻿@model MVC_Muzik_Magaza.Models.tbl_urun
+
+
+
+@{
+    ViewBag.Title = "Urunekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Urunekle</h2>
+
+
+@using (Html.BeginForm("Urunekle", "Urun", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+    <form class="form-group">
+        <div>
+            <label>Ürün Ad</label>
+            @Html.TextBoxFor(m => m.Urunad, new { @class = "form-control" })
+            <br />
+
+            <label>Marka</label>
+            @Html.TextBoxFor(m => m.Marka, new { @class = "form-control" })
+            <br />
+
+            <label>Fiyat</label>
+            @Html.TextBoxFor(m => m.UrunFiyat, new { @class = "form-control" })
+            <br />
+
+            <label>Stok</label>
+            @Html.TextBoxFor(m => m.UrunStok, new { @class = "form-control" })
+            <br />
+
+            <label>Kategori</label>
+            @Html.DropDownListFor(m => m.tbl_kategori.KategoriID, (List<SelectListItem>)ViewBag.ktgr, new { @class = "form-control" })
+            <br />
+
+
+            <label>Açıklama</label>
+            @Html.TextAreaFor(m => m.UrunAciklama, new { @class = "form-control" })
+            <br />
+
+
+            <label>Görsel</label>
+            @Html.EditorFor(m => m.ImagePath, new { htmlAttributes = new { @class = "form-group", type = "file" } })
+            <br />
+
+
+        </div>
+        <div style="margin-top:15px">
+            <button class="btn btn-info">Ürün Ekle</button>
+        </div>
+    </form>
+}
+

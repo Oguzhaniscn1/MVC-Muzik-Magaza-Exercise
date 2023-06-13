@@ -1,0 +1,44 @@
+﻿
+@model MVC_Muzik_Magaza.Models.tbl_satis
+
+
+
+
+
+@{
+    ViewBag.Title = "Satisgetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Satisgetir</h2>
+
+
+
+
+@using (Html.BeginForm("Guncelle", "Satis", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(k => k.SatisID)
+        @Html.TextBoxFor(k => k.SatisID, new { @class = "form-control", @readonly = "readonly" })
+
+        @Html.LabelFor(k => k.tbl_musteri.MusteriAdsoyad)
+        @Html.DropDownListFor(k => k.tbl_musteri.MusteriID, (List<SelectListItem>)ViewBag.must, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.tbl_urun.Urunad)
+        @Html.DropDownListFor(k => k.tbl_urun.UrunID, (List<SelectListItem>)ViewBag.urn, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.Satisadet)
+        @Html.TextBoxFor(k => k.Satisadet, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.SatisFiyat)
+        @Html.TextBoxFor(k => k.SatisFiyat, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.Satistarih)
+        @Html.TextBoxFor(m => m.Satistarih, new { @class = "form-control", @type = "date" })
+
+
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Ürün Güncelle</button>
+    </div>
+}

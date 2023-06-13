@@ -1,0 +1,55 @@
+﻿@model MVC_Muzik_Magaza.Models.tbl_musteri
+@{
+    ViewBag.Title = "Yenimusteri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yenimusteri</h2>
+
+<form method="post" class="form-group">
+    <div>
+        <label>Müşteri AdSoyad</label>
+        @Html.TextBoxFor(m => m.MusteriAdsoyad, new { @class = "form-control" })
+        <br />
+
+        <label>Müşteri TelNo</label>
+        @Html.TextBoxFor(m => m.Telno, new { @class = "form-control" })
+        <br />
+
+        <label>Müşteri TC</label>
+        @Html.TextBoxFor(m => m.TC, new { @class = "form-control" })
+        <br />
+
+        <label>Müşteri Adres</label>
+        @Html.TextBoxFor(m => m.Adres, new { @class = "form-control" })
+        <br />
+
+
+
+
+        <label>Müşteri Şehir</label>
+        @Html.TextBoxFor(m => m.Sehir, new { @class = "form-control" })
+        <br />
+
+        <label>Kullanıcı Adı</label>
+        @Html.TextBoxFor(m => m.KulAdi, new { @class = "form-control" })
+        <br />
+
+        <label>Müşteri Şifre</label>
+        @Html.TextBoxFor(m => m.Sifre, new { @class = "form-control" })
+        <br />
+        
+        @Html.LabelFor(k => k.Yetki, "Yetki")
+        @Html.DropDownListFor(k => k.Yetki, new SelectList(new[]
+            {
+                new SelectListItem { Text = "Müşteri", Value = "False" },
+                new SelectListItem { Text = "Admin", Value = "True" }
+            }, "Value", "Text"), "-- Seçiniz --", new { @class = "form-control" })
+
+
+
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Müşteri Ekle</button>
+    </div>
+</form>

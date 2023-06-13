@@ -1,0 +1,22 @@
+﻿@model MVC_Muzik_Magaza.Models.tbl_urun
+
+@{
+    ViewBag.Title = "Ürün Detayı";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="@Model.ImagePath" class="img-fluid" alt="Ürün Resmi">
+    </div>
+    <div class="col-md-6">
+        <h2>@Model.Urunad</h2>
+        <p>Marka: @Model.Marka</p>
+        <p>Fiyat: @Model.UrunFiyat.ToString() TL</p>
+        <p>Açıklama: @Model.UrunAciklama</p>
+        @using (Html.BeginForm("Satısyap", "KullaniciAnasayfa", new { id = Model.UrunID }, FormMethod.Post))
+        {
+            <input type="submit" value="Satın Al" class="btn btn-primary" />
+        }
+    </div>
+</div>

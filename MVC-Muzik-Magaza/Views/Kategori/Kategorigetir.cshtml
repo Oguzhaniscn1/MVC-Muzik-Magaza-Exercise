@@ -1,0 +1,20 @@
+﻿@model MVC_Muzik_Magaza.Models.tbl_kategori
+@{
+    ViewBag.Title = "kategorigetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>kategorigetir</h2>
+@using (Html.BeginForm("Guncelle", "Kategori", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(k => k.KategoriID)
+        @Html.TextBoxFor(k => k.KategoriID, new { @class = "form-control", @readonly = "readonly" })
+
+        @Html.LabelFor(k => k.KategoriAd)
+        @Html.TextBoxFor(k => k.KategoriAd, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Kategori Güncelle</button>
+    </div>
+}

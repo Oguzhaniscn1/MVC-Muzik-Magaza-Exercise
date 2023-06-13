@@ -1,0 +1,13 @@
+﻿@{
+        ViewBag.Title = "Ana Sayfa";
+        Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@{
+    string kullaniciAdi = Session["KullaniciAdi"] as string;
+    if (!string.IsNullOrEmpty(kullaniciAdi))
+    {
+        <h2>Hoş geldin, @kullaniciAdi!</h2>
+    }
+}
+

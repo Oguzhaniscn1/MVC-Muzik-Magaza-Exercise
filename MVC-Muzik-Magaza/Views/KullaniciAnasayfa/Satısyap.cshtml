@@ -1,0 +1,24 @@
+﻿@model MVC_Muzik_Magaza.Models.tbl_urun
+
+@{
+    ViewBag.Title = "Satın Al";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@if (Model != null)
+{
+    <h2>Satın Al</h2>
+
+    <p>Ürün Adı: @Model.Urunad</p>
+    <p>Marka: @Model.Marka</p>
+    <p>Fiyat: @Model.UrunFiyat TL</p>
+
+    @using (Html.BeginForm("Satısyap", "KullaniciAnasayfa", new { id = Model.UrunID }, FormMethod.Post))
+    {
+        <input type="submit" value="Satın Al" class="btn btn-primary" />
+    }
+}
+else
+{
+    <p>Ürün bilgileri bulunamadı.</p>
+}

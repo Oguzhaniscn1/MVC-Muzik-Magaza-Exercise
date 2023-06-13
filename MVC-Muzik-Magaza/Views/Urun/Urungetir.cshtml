@@ -1,0 +1,45 @@
+﻿@model MVC_Muzik_Magaza.Models.tbl_urun
+
+
+@{
+    ViewBag.Title = "Urungetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Urungetir</h2>
+
+
+@using (Html.BeginForm("Guncelle", "Urun", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(k => k.UrunID)
+        @Html.TextBoxFor(k => k.UrunID, new { @class = "form-control", @readonly = "readonly" })
+
+        @Html.LabelFor(k => k.Urunad)
+        @Html.TextBoxFor(k => k.Urunad, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.Marka)
+        @Html.TextBoxFor(k => k.Marka, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.UrunFiyat)
+        @Html.TextBoxFor(k => k.UrunFiyat, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.UrunStok)
+        @Html.TextBoxFor(k => k.UrunStok, new { @class = "form-control" })
+
+        @Html.LabelFor(k => k.tbl_kategori.KategoriAd)
+        @Html.DropDownListFor(m => m.tbl_kategori.KategoriID, (List<SelectListItem>)ViewBag.ktgr, new { @class = "form-control" })
+
+
+        @Html.LabelFor(k => k.UrunAciklama )
+        @Html.TextAreaFor(k => k.UrunAciklama, new { @class = "form-control" })
+
+
+        @Html.LabelFor(k => k.ImagePath)
+        @Html.EditorFor(m => m.ImagePath, new { htmlAttributes = new { @class = "form-group", type = "file" } })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Ürün Güncelle</button>
+    </div>
+}
+

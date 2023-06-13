@@ -1,0 +1,72 @@
+﻿
+@model MVC_Muzik_Magaza.Models.tbl_satis
+
+
+
+@{
+    ViewBag.Title = "Satisekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Satisekle</h2>
+
+
+
+@using (Html.BeginForm("Satisekle", "Satis", FormMethod.Post))
+
+{
+    <form class="form-group">
+        <div>
+            <label>Ürün Ad</label>
+            @Html.DropDownListFor(m => m.tbl_urun.UrunID, (List<SelectListItem>)ViewBag.urn, new { @class = "form-control" })
+            <br />
+
+            <label>müsteri </label>
+            @Html.DropDownListFor(m => m.tbl_musteri.MusteriID, (List<SelectListItem>)ViewBag.must, new { @class = "form-control" })
+            <br />
+
+            <label>Fiyat</label>
+            @Html.TextBoxFor(m => m.SatisFiyat, new { @class = "form-control" })
+            <br />
+
+            <label>Adet</label>
+            @Html.TextBoxFor(m => m.Satisadet, new { @class = "form-control", onkeypress = "hesapla()" })
+            <br />
+
+            <span style="color:red">
+                @ViewBag.mesaj
+            </span>
+            <br />
+
+            <label>Tarih</label>
+            @Html.TextBoxFor(m => m.Satistarih, new { @class = "form-control", @type = "date" })
+            <br />
+
+
+        </div>
+        <div style="margin-top:15px">
+            <button class="btn btn-info">Satış Ekle</button>
+        </div>
+    </form>
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+
+<script>
+
+    var fiyat = $("#SatisFiyat")
+    function hesapla() {
+        var UrunId = $("#tbl_urun_UrunID option:selected").val()
+        $.getJSON("/Satis/GetFiyat/" + UrunId, function (data) {
+            var adet = $("#Satisadet")
+            if (!isNaN(adet.val())) {
+                fiyat.val(adet.val()*data)
+            }
+        })
+    }
+
+
+
+</script>

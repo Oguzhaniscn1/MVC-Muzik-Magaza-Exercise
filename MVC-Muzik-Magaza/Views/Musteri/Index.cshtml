@@ -1,0 +1,52 @@
+﻿@using MVC_Muzik_Magaza.Models
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<tbl_musteri>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>MÜŞTERİ ID</th>
+            <th>MÜŞTERİ ADSOYAD</th>
+            <th>MÜŞTERİ TELNO</th>
+            <th>MÜŞTERİ TC</th>
+            <th>MÜŞTERİ ADRES</th>
+            <th>MÜŞTERİ ŞEHİR</th>
+            <th>KULLANICI ADI</th>
+            <th>ŞİFRE</th>
+            <th>Yetki</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var must in Model)
+        {
+            <tr>
+                <td>@must.MusteriID</td>
+                <td>@must.MusteriAdsoyad</td>
+                <td>@must.Telno</td>
+                <td>@must.TC</td>
+                <td>@must.Adres</td>
+                <td>@must.Sehir</td>
+                <td>@must.KulAdi</td>
+                <td>@must.Sifre</td>
+                <td>@must.Yetki</td>
+
+                <td><a href="/Musteri/Sil/@must.MusteriID" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Musteri/musterigetir/@must.MusteriID" class="btn btn-info">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Musteri/Yenimusteri" class="btn btn-info">YENİ MÜŞTERİ EKLE</a>
+
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))

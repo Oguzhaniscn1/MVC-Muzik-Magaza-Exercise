@@ -1,0 +1,17 @@
+﻿@model MVC_Muzik_Magaza.Models.tbl_satis
+@{
+    ViewBag.Title = "satisbasarili";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Satış Başarılı</h2>
+
+<p>Satın alma işlemi başarıyla gerçekleştirilmiştir. İşte satış bilgileri:</p>
+
+<ul>
+    <li>Müşteri ID: @Model.Musteri</li>
+    <li>Ürün ID: @Model.Urun</li>
+    <li>Satış Fiyatı: @Model.SatisFiyat</li>
+    <li>Satış Tarihi: @Model.Satistarih</li>
+    <li>Satış Adeti: @Model.Satisadet</li>
+</ul>
